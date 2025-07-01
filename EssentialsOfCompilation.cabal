@@ -58,7 +58,9 @@ library
     import:           warnings
 
     -- Modules exported by the library.
-    exposed-modules:  MyLib
+    exposed-modules:
+      AST
+      Evaluator
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -67,7 +69,8 @@ library
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.18.3.0
+    build-depends:
+      , base ^>=4.18.3.0
 
     -- Directories containing source files.
     hs-source-dirs:   src
@@ -99,7 +102,7 @@ executable EssentialsOfCompilation
     -- Base language which the package is written in.
     default-language: Haskell2010
 
-test-suite EssentialsOfCompilation-test
+test-suite spec
     -- Import common warning flags.
     import:           warnings
 
@@ -119,9 +122,14 @@ test-suite EssentialsOfCompilation-test
     hs-source-dirs:   test
 
     -- The entrypoint to the test suite.
-    main-is:          Main.hs
+    main-is:          Spec.hs
 
     -- Test dependencies.
     build-depends:
-        base ^>=4.18.3.0,
-        EssentialsOfCompilation
+          base ^>=4.18.3.0
+        , QuickCheck
+        , hspec
+        , EssentialsOfCompilation
+    other-modules:
+        EvaluatorSpec
+    build-tool-depends: hspec-discover:hspec-discover == 2.*
