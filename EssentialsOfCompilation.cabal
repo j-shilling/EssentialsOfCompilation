@@ -70,7 +70,7 @@ library
 
     -- Other library packages from which modules are imported.
     build-depends:
-      , base ^>=4.18.3.0
+      , base
 
     -- Directories containing source files.
     hs-source-dirs:   src
@@ -93,8 +93,8 @@ executable EssentialsOfCompilation
 
     -- Other library packages from which modules are imported.
     build-depends:
-        base ^>=4.18.3.0,
-        EssentialsOfCompilation
+          base
+        , EssentialsOfCompilation
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -126,7 +126,7 @@ test-suite spec
 
     -- Test dependencies.
     build-depends:
-          base ^>=4.18.3.0
+          base
         , QuickCheck
         , hspec
         , EssentialsOfCompilation
